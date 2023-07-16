@@ -1,0 +1,11 @@
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\bin\Debug\Negocio.dll
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\bin\Debug\Negocio.pdb
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\bin\Debug\Datos.dll
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\bin\Debug\Modelo.dll
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\bin\Debug\Datos.pdb
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\bin\Debug\Modelo.pdb
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\obj\Debug\Negocio.dll
+C:\Users\gabri\Desktop\Programacion II\Vente_Aqui2\Negocio\obj\Debug\Negocio.pdb
