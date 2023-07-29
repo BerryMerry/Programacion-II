@@ -30,30 +30,36 @@ namespace Datos.DBConexion
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTipo_Habitacion(Tipo_Habitacion instance);
-    partial void UpdateTipo_Habitacion(Tipo_Habitacion instance);
-    partial void DeleteTipo_Habitacion(Tipo_Habitacion instance);
-    partial void InsertSectore(Sectore instance);
-    partial void UpdateSectore(Sectore instance);
-    partial void DeleteSectore(Sectore instance);
-    partial void InsertResenas_Motel(Resenas_Motel instance);
-    partial void UpdateResenas_Motel(Resenas_Motel instance);
-    partial void DeleteResenas_Motel(Resenas_Motel instance);
     partial void Insert_HabitacionXMotel(_HabitacionXMotel instance);
     partial void Update_HabitacionXMotel(_HabitacionXMotel instance);
     partial void Delete_HabitacionXMotel(_HabitacionXMotel instance);
+    partial void InsertTipo_Habitacion(Tipo_Habitacion instance);
+    partial void UpdateTipo_Habitacion(Tipo_Habitacion instance);
+    partial void DeleteTipo_Habitacion(Tipo_Habitacion instance);
     partial void InsertFormas_de_pago(Formas_de_pago instance);
     partial void UpdateFormas_de_pago(Formas_de_pago instance);
     partial void DeleteFormas_de_pago(Formas_de_pago instance);
     partial void InsertFormas_de_pagoXMotele(Formas_de_pagoXMotele instance);
     partial void UpdateFormas_de_pagoXMotele(Formas_de_pagoXMotele instance);
     partial void DeleteFormas_de_pagoXMotele(Formas_de_pagoXMotele instance);
+    partial void InsertLista_Usuario(Lista_Usuario instance);
+    partial void UpdateLista_Usuario(Lista_Usuario instance);
+    partial void DeleteLista_Usuario(Lista_Usuario instance);
+    partial void InsertLogMantenimiento_Tabla(LogMantenimiento_Tabla instance);
+    partial void UpdateLogMantenimiento_Tabla(LogMantenimiento_Tabla instance);
+    partial void DeleteLogMantenimiento_Tabla(LogMantenimiento_Tabla instance);
     partial void InsertMotele(Motele instance);
     partial void UpdateMotele(Motele instance);
     partial void DeleteMotele(Motele instance);
     partial void InsertPuntuacion(Puntuacion instance);
     partial void UpdatePuntuacion(Puntuacion instance);
     partial void DeletePuntuacion(Puntuacion instance);
+    partial void InsertResenas_Motel(Resenas_Motel instance);
+    partial void UpdateResenas_Motel(Resenas_Motel instance);
+    partial void DeleteResenas_Motel(Resenas_Motel instance);
+    partial void InsertSectore(Sectore instance);
+    partial void UpdateSectore(Sectore instance);
+    partial void DeleteSectore(Sectore instance);
     #endregion
 		
 		public DBLibraryEntityDataContext() : 
@@ -86,35 +92,19 @@ namespace Datos.DBConexion
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Tipo_Habitacion> Tipo_Habitacions
-		{
-			get
-			{
-				return this.GetTable<Tipo_Habitacion>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Sectore> Sectores
-		{
-			get
-			{
-				return this.GetTable<Sectore>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Resenas_Motel> Resenas_Motels
-		{
-			get
-			{
-				return this.GetTable<Resenas_Motel>();
-			}
-		}
-		
 		public System.Data.Linq.Table<_HabitacionXMotel> _HabitacionXMotels
 		{
 			get
 			{
 				return this.GetTable<_HabitacionXMotel>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tipo_Habitacion> Tipo_Habitacions
+		{
+			get
+			{
+				return this.GetTable<Tipo_Habitacion>();
 			}
 		}
 		
@@ -134,6 +124,22 @@ namespace Datos.DBConexion
 			}
 		}
 		
+		public System.Data.Linq.Table<Lista_Usuario> Lista_Usuarios
+		{
+			get
+			{
+				return this.GetTable<Lista_Usuario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LogMantenimiento_Tabla> LogMantenimiento_Tablas
+		{
+			get
+			{
+				return this.GetTable<LogMantenimiento_Tabla>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Motele> Moteles
 		{
 			get
@@ -149,383 +155,20 @@ namespace Datos.DBConexion
 				return this.GetTable<Puntuacion>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tipo_Habitacion")]
-	public partial class Tipo_Habitacion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_TipoHabitacion;
-		
-		private string _Tipo;
-		
-		private EntitySet<_HabitacionXMotel> @__HabitacionXMotels;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_TipoHabitacionChanging(int value);
-    partial void OnID_TipoHabitacionChanged();
-    partial void OnTipoChanging(string value);
-    partial void OnTipoChanged();
-    #endregion
-		
-		public Tipo_Habitacion()
-		{
-			this.@__HabitacionXMotels = new EntitySet<_HabitacionXMotel>(new Action<_HabitacionXMotel>(this.attach__HabitacionXMotels), new Action<_HabitacionXMotel>(this.detach__HabitacionXMotels));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TipoHabitacion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_TipoHabitacion
+		public System.Data.Linq.Table<Resenas_Motel> Resenas_Motels
 		{
 			get
 			{
-				return this._ID_TipoHabitacion;
-			}
-			set
-			{
-				if ((this._ID_TipoHabitacion != value))
-				{
-					this.OnID_TipoHabitacionChanging(value);
-					this.SendPropertyChanging();
-					this._ID_TipoHabitacion = value;
-					this.SendPropertyChanged("ID_TipoHabitacion");
-					this.OnID_TipoHabitacionChanged();
-				}
+				return this.GetTable<Resenas_Motel>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string Tipo
+		public System.Data.Linq.Table<Sectore> Sectores
 		{
 			get
 			{
-				return this._Tipo;
-			}
-			set
-			{
-				if ((this._Tipo != value))
-				{
-					this.OnTipoChanging(value);
-					this.SendPropertyChanging();
-					this._Tipo = value;
-					this.SendPropertyChanged("Tipo");
-					this.OnTipoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipo_Habitacion__HabitacionXMotel", Storage="__HabitacionXMotels", ThisKey="ID_TipoHabitacion", OtherKey="ID_TipoHabitacion")]
-		public EntitySet<_HabitacionXMotel> _HabitacionXMotels
-		{
-			get
-			{
-				return this.@__HabitacionXMotels;
-			}
-			set
-			{
-				this.@__HabitacionXMotels.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach__HabitacionXMotels(_HabitacionXMotel entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tipo_Habitacion = this;
-		}
-		
-		private void detach__HabitacionXMotels(_HabitacionXMotel entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tipo_Habitacion = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sectores")]
-	public partial class Sectore : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_Sector;
-		
-		private string _Nombre_Sector;
-		
-		private EntitySet<Motele> _Moteles;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_SectorChanging(int value);
-    partial void OnID_SectorChanged();
-    partial void OnNombre_SectorChanging(string value);
-    partial void OnNombre_SectorChanged();
-    #endregion
-		
-		public Sectore()
-		{
-			this._Moteles = new EntitySet<Motele>(new Action<Motele>(this.attach_Moteles), new Action<Motele>(this.detach_Moteles));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Sector", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_Sector
-		{
-			get
-			{
-				return this._ID_Sector;
-			}
-			set
-			{
-				if ((this._ID_Sector != value))
-				{
-					this.OnID_SectorChanging(value);
-					this.SendPropertyChanging();
-					this._ID_Sector = value;
-					this.SendPropertyChanged("ID_Sector");
-					this.OnID_SectorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Sector", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string Nombre_Sector
-		{
-			get
-			{
-				return this._Nombre_Sector;
-			}
-			set
-			{
-				if ((this._Nombre_Sector != value))
-				{
-					this.OnNombre_SectorChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre_Sector = value;
-					this.SendPropertyChanged("Nombre_Sector");
-					this.OnNombre_SectorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sectore_Motele", Storage="_Moteles", ThisKey="ID_Sector", OtherKey="ID_Sector")]
-		public EntitySet<Motele> Moteles
-		{
-			get
-			{
-				return this._Moteles;
-			}
-			set
-			{
-				this._Moteles.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Moteles(Motele entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sectore = this;
-		}
-		
-		private void detach_Moteles(Motele entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sectore = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Resenas_Motel")]
-	public partial class Resenas_Motel : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID_ReseñaMotel;
-		
-		private int _ID_Motel;
-		
-		private string _Reseña;
-		
-		private EntityRef<Motele> _Motele;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnID_ReseñaMotelChanging(int value);
-    partial void OnID_ReseñaMotelChanged();
-    partial void OnID_MotelChanging(int value);
-    partial void OnID_MotelChanged();
-    partial void OnReseñaChanging(string value);
-    partial void OnReseñaChanged();
-    #endregion
-		
-		public Resenas_Motel()
-		{
-			this._Motele = default(EntityRef<Motele>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ReseñaMotel", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID_ReseñaMotel
-		{
-			get
-			{
-				return this._ID_ReseñaMotel;
-			}
-			set
-			{
-				if ((this._ID_ReseñaMotel != value))
-				{
-					this.OnID_ReseñaMotelChanging(value);
-					this.SendPropertyChanging();
-					this._ID_ReseñaMotel = value;
-					this.SendPropertyChanged("ID_ReseñaMotel");
-					this.OnID_ReseñaMotelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Motel", DbType="Int NOT NULL")]
-		public int ID_Motel
-		{
-			get
-			{
-				return this._ID_Motel;
-			}
-			set
-			{
-				if ((this._ID_Motel != value))
-				{
-					if (this._Motele.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnID_MotelChanging(value);
-					this.SendPropertyChanging();
-					this._ID_Motel = value;
-					this.SendPropertyChanged("ID_Motel");
-					this.OnID_MotelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reseña", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Reseña
-		{
-			get
-			{
-				return this._Reseña;
-			}
-			set
-			{
-				if ((this._Reseña != value))
-				{
-					this.OnReseñaChanging(value);
-					this.SendPropertyChanging();
-					this._Reseña = value;
-					this.SendPropertyChanged("Reseña");
-					this.OnReseñaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Motele_Resenas_Motel", Storage="_Motele", ThisKey="ID_Motel", OtherKey="ID_Motel", IsForeignKey=true)]
-		public Motele Motele
-		{
-			get
-			{
-				return this._Motele.Entity;
-			}
-			set
-			{
-				Motele previousValue = this._Motele.Entity;
-				if (((previousValue != value) 
-							|| (this._Motele.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Motele.Entity = null;
-						previousValue.Resenas_Motels.Remove(this);
-					}
-					this._Motele.Entity = value;
-					if ((value != null))
-					{
-						value.Resenas_Motels.Add(this);
-						this._ID_Motel = value.ID_Motel;
-					}
-					else
-					{
-						this._ID_Motel = default(int);
-					}
-					this.SendPropertyChanged("Motele");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Sectore>();
 			}
 		}
 	}
@@ -743,6 +386,120 @@ namespace Datos.DBConexion
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tipo_Habitacion")]
+	public partial class Tipo_Habitacion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_TipoHabitacion;
+		
+		private string _Tipo;
+		
+		private EntitySet<_HabitacionXMotel> @__HabitacionXMotels;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_TipoHabitacionChanging(int value);
+    partial void OnID_TipoHabitacionChanged();
+    partial void OnTipoChanging(string value);
+    partial void OnTipoChanged();
+    #endregion
+		
+		public Tipo_Habitacion()
+		{
+			this.@__HabitacionXMotels = new EntitySet<_HabitacionXMotel>(new Action<_HabitacionXMotel>(this.attach__HabitacionXMotels), new Action<_HabitacionXMotel>(this.detach__HabitacionXMotels));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_TipoHabitacion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_TipoHabitacion
+		{
+			get
+			{
+				return this._ID_TipoHabitacion;
+			}
+			set
+			{
+				if ((this._ID_TipoHabitacion != value))
+				{
+					this.OnID_TipoHabitacionChanging(value);
+					this.SendPropertyChanging();
+					this._ID_TipoHabitacion = value;
+					this.SendPropertyChanged("ID_TipoHabitacion");
+					this.OnID_TipoHabitacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string Tipo
+		{
+			get
+			{
+				return this._Tipo;
+			}
+			set
+			{
+				if ((this._Tipo != value))
+				{
+					this.OnTipoChanging(value);
+					this.SendPropertyChanging();
+					this._Tipo = value;
+					this.SendPropertyChanged("Tipo");
+					this.OnTipoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tipo_Habitacion__HabitacionXMotel", Storage="__HabitacionXMotels", ThisKey="ID_TipoHabitacion", OtherKey="ID_TipoHabitacion")]
+		public EntitySet<_HabitacionXMotel> _HabitacionXMotels
+		{
+			get
+			{
+				return this.@__HabitacionXMotels;
+			}
+			set
+			{
+				this.@__HabitacionXMotels.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach__HabitacionXMotels(_HabitacionXMotel entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tipo_Habitacion = this;
+		}
+		
+		private void detach__HabitacionXMotels(_HabitacionXMotel entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tipo_Habitacion = null;
 		}
 	}
 	
@@ -1100,6 +857,274 @@ namespace Datos.DBConexion
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lista_Usuario")]
+	public partial class Lista_Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id_Usuario;
+		
+		private string _Nom_usuario;
+		
+		private string _Passwd;
+		
+		private string _Tipo_usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_UsuarioChanging(int value);
+    partial void OnId_UsuarioChanged();
+    partial void OnNom_usuarioChanging(string value);
+    partial void OnNom_usuarioChanged();
+    partial void OnPasswdChanging(string value);
+    partial void OnPasswdChanged();
+    partial void OnTipo_usuarioChanging(string value);
+    partial void OnTipo_usuarioChanged();
+    #endregion
+		
+		public Lista_Usuario()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Usuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id_Usuario
+		{
+			get
+			{
+				return this._Id_Usuario;
+			}
+			set
+			{
+				if ((this._Id_Usuario != value))
+				{
+					this.OnId_UsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Usuario = value;
+					this.SendPropertyChanged("Id_Usuario");
+					this.OnId_UsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nom_usuario", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nom_usuario
+		{
+			get
+			{
+				return this._Nom_usuario;
+			}
+			set
+			{
+				if ((this._Nom_usuario != value))
+				{
+					this.OnNom_usuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Nom_usuario = value;
+					this.SendPropertyChanged("Nom_usuario");
+					this.OnNom_usuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Passwd", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Passwd
+		{
+			get
+			{
+				return this._Passwd;
+			}
+			set
+			{
+				if ((this._Passwd != value))
+				{
+					this.OnPasswdChanging(value);
+					this.SendPropertyChanging();
+					this._Passwd = value;
+					this.SendPropertyChanged("Passwd");
+					this.OnPasswdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo_usuario", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Tipo_usuario
+		{
+			get
+			{
+				return this._Tipo_usuario;
+			}
+			set
+			{
+				if ((this._Tipo_usuario != value))
+				{
+					this.OnTipo_usuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Tipo_usuario = value;
+					this.SendPropertyChanged("Tipo_usuario");
+					this.OnTipo_usuarioChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LogMantenimiento_Tablas")]
+	public partial class LogMantenimiento_Tabla : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_Tabla;
+		
+		private string _Usuario;
+		
+		private string _Descripcion_Mant;
+		
+		private System.DateTime _Fecha;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_TablaChanging(int value);
+    partial void Onid_TablaChanged();
+    partial void OnUsuarioChanging(string value);
+    partial void OnUsuarioChanged();
+    partial void OnDescripcion_MantChanging(string value);
+    partial void OnDescripcion_MantChanged();
+    partial void OnFechaChanging(System.DateTime value);
+    partial void OnFechaChanged();
+    #endregion
+		
+		public LogMantenimiento_Tabla()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Tabla", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_Tabla
+		{
+			get
+			{
+				return this._id_Tabla;
+			}
+			set
+			{
+				if ((this._id_Tabla != value))
+				{
+					this.Onid_TablaChanging(value);
+					this.SendPropertyChanging();
+					this._id_Tabla = value;
+					this.SendPropertyChanged("id_Tabla");
+					this.Onid_TablaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this.OnUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Usuario = value;
+					this.SendPropertyChanged("Usuario");
+					this.OnUsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion_Mant", DbType="NVarChar(MAX)")]
+		public string Descripcion_Mant
+		{
+			get
+			{
+				return this._Descripcion_Mant;
+			}
+			set
+			{
+				if ((this._Descripcion_Mant != value))
+				{
+					this.OnDescripcion_MantChanging(value);
+					this.SendPropertyChanging();
+					this._Descripcion_Mant = value;
+					this.SendPropertyChanged("Descripcion_Mant");
+					this.OnDescripcion_MantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="DateTime NOT NULL")]
+		public System.DateTime Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this.OnFechaChanging(value);
+					this.SendPropertyChanging();
+					this._Fecha = value;
+					this.SendPropertyChanged("Fecha");
+					this.OnFechaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Moteles")]
 	public partial class Motele : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1116,13 +1141,13 @@ namespace Datos.DBConexion
 		
 		private int _ID_Sector;
 		
-		private EntitySet<Resenas_Motel> _Resenas_Motels;
-		
 		private EntitySet<_HabitacionXMotel> @__HabitacionXMotels;
 		
 		private EntitySet<Formas_de_pagoXMotele> _Formas_de_pagoXMoteles;
 		
 		private EntitySet<Puntuacion> _Puntuacions;
+		
+		private EntitySet<Resenas_Motel> _Resenas_Motels;
 		
 		private EntityRef<Sectore> _Sectore;
 		
@@ -1144,10 +1169,10 @@ namespace Datos.DBConexion
 		
 		public Motele()
 		{
-			this._Resenas_Motels = new EntitySet<Resenas_Motel>(new Action<Resenas_Motel>(this.attach_Resenas_Motels), new Action<Resenas_Motel>(this.detach_Resenas_Motels));
 			this.@__HabitacionXMotels = new EntitySet<_HabitacionXMotel>(new Action<_HabitacionXMotel>(this.attach__HabitacionXMotels), new Action<_HabitacionXMotel>(this.detach__HabitacionXMotels));
 			this._Formas_de_pagoXMoteles = new EntitySet<Formas_de_pagoXMotele>(new Action<Formas_de_pagoXMotele>(this.attach_Formas_de_pagoXMoteles), new Action<Formas_de_pagoXMotele>(this.detach_Formas_de_pagoXMoteles));
 			this._Puntuacions = new EntitySet<Puntuacion>(new Action<Puntuacion>(this.attach_Puntuacions), new Action<Puntuacion>(this.detach_Puntuacions));
+			this._Resenas_Motels = new EntitySet<Resenas_Motel>(new Action<Resenas_Motel>(this.attach_Resenas_Motels), new Action<Resenas_Motel>(this.detach_Resenas_Motels));
 			this._Sectore = default(EntityRef<Sectore>);
 			OnCreated();
 		}
@@ -1256,19 +1281,6 @@ namespace Datos.DBConexion
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Motele_Resenas_Motel", Storage="_Resenas_Motels", ThisKey="ID_Motel", OtherKey="ID_Motel")]
-		public EntitySet<Resenas_Motel> Resenas_Motels
-		{
-			get
-			{
-				return this._Resenas_Motels;
-			}
-			set
-			{
-				this._Resenas_Motels.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Motele__HabitacionXMotel", Storage="__HabitacionXMotels", ThisKey="ID_Motel", OtherKey="ID_Motel")]
 		public EntitySet<_HabitacionXMotel> _HabitacionXMotels
 		{
@@ -1305,6 +1317,19 @@ namespace Datos.DBConexion
 			set
 			{
 				this._Puntuacions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Motele_Resenas_Motel", Storage="_Resenas_Motels", ThisKey="ID_Motel", OtherKey="ID_Motel")]
+		public EntitySet<Resenas_Motel> Resenas_Motels
+		{
+			get
+			{
+				return this._Resenas_Motels;
+			}
+			set
+			{
+				this._Resenas_Motels.Assign(value);
 			}
 		}
 		
@@ -1362,18 +1387,6 @@ namespace Datos.DBConexion
 			}
 		}
 		
-		private void attach_Resenas_Motels(Resenas_Motel entity)
-		{
-			this.SendPropertyChanging();
-			entity.Motele = this;
-		}
-		
-		private void detach_Resenas_Motels(Resenas_Motel entity)
-		{
-			this.SendPropertyChanging();
-			entity.Motele = null;
-		}
-		
 		private void attach__HabitacionXMotels(_HabitacionXMotel entity)
 		{
 			this.SendPropertyChanging();
@@ -1405,6 +1418,18 @@ namespace Datos.DBConexion
 		}
 		
 		private void detach_Puntuacions(Puntuacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Motele = null;
+		}
+		
+		private void attach_Resenas_Motels(Resenas_Motel entity)
+		{
+			this.SendPropertyChanging();
+			entity.Motele = this;
+		}
+		
+		private void detach_Resenas_Motels(Resenas_Motel entity)
 		{
 			this.SendPropertyChanging();
 			entity.Motele = null;
@@ -1583,6 +1608,271 @@ namespace Datos.DBConexion
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Resenas_Motel")]
+	public partial class Resenas_Motel : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_ReseñaMotel;
+		
+		private int _ID_Motel;
+		
+		private string _Reseña;
+		
+		private EntityRef<Motele> _Motele;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_ReseñaMotelChanging(int value);
+    partial void OnID_ReseñaMotelChanged();
+    partial void OnID_MotelChanging(int value);
+    partial void OnID_MotelChanged();
+    partial void OnReseñaChanging(string value);
+    partial void OnReseñaChanged();
+    #endregion
+		
+		public Resenas_Motel()
+		{
+			this._Motele = default(EntityRef<Motele>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ReseñaMotel", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_ReseñaMotel
+		{
+			get
+			{
+				return this._ID_ReseñaMotel;
+			}
+			set
+			{
+				if ((this._ID_ReseñaMotel != value))
+				{
+					this.OnID_ReseñaMotelChanging(value);
+					this.SendPropertyChanging();
+					this._ID_ReseñaMotel = value;
+					this.SendPropertyChanged("ID_ReseñaMotel");
+					this.OnID_ReseñaMotelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Motel", DbType="Int NOT NULL")]
+		public int ID_Motel
+		{
+			get
+			{
+				return this._ID_Motel;
+			}
+			set
+			{
+				if ((this._ID_Motel != value))
+				{
+					if (this._Motele.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_MotelChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Motel = value;
+					this.SendPropertyChanged("ID_Motel");
+					this.OnID_MotelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reseña", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Reseña
+		{
+			get
+			{
+				return this._Reseña;
+			}
+			set
+			{
+				if ((this._Reseña != value))
+				{
+					this.OnReseñaChanging(value);
+					this.SendPropertyChanging();
+					this._Reseña = value;
+					this.SendPropertyChanged("Reseña");
+					this.OnReseñaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Motele_Resenas_Motel", Storage="_Motele", ThisKey="ID_Motel", OtherKey="ID_Motel", IsForeignKey=true)]
+		public Motele Motele
+		{
+			get
+			{
+				return this._Motele.Entity;
+			}
+			set
+			{
+				Motele previousValue = this._Motele.Entity;
+				if (((previousValue != value) 
+							|| (this._Motele.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Motele.Entity = null;
+						previousValue.Resenas_Motels.Remove(this);
+					}
+					this._Motele.Entity = value;
+					if ((value != null))
+					{
+						value.Resenas_Motels.Add(this);
+						this._ID_Motel = value.ID_Motel;
+					}
+					else
+					{
+						this._ID_Motel = default(int);
+					}
+					this.SendPropertyChanged("Motele");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sectores")]
+	public partial class Sectore : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_Sector;
+		
+		private string _Nombre_Sector;
+		
+		private EntitySet<Motele> _Moteles;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_SectorChanging(int value);
+    partial void OnID_SectorChanged();
+    partial void OnNombre_SectorChanging(string value);
+    partial void OnNombre_SectorChanged();
+    #endregion
+		
+		public Sectore()
+		{
+			this._Moteles = new EntitySet<Motele>(new Action<Motele>(this.attach_Moteles), new Action<Motele>(this.detach_Moteles));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Sector", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_Sector
+		{
+			get
+			{
+				return this._ID_Sector;
+			}
+			set
+			{
+				if ((this._ID_Sector != value))
+				{
+					this.OnID_SectorChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Sector = value;
+					this.SendPropertyChanged("ID_Sector");
+					this.OnID_SectorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Sector", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string Nombre_Sector
+		{
+			get
+			{
+				return this._Nombre_Sector;
+			}
+			set
+			{
+				if ((this._Nombre_Sector != value))
+				{
+					this.OnNombre_SectorChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre_Sector = value;
+					this.SendPropertyChanged("Nombre_Sector");
+					this.OnNombre_SectorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sectore_Motele", Storage="_Moteles", ThisKey="ID_Sector", OtherKey="ID_Sector")]
+		public EntitySet<Motele> Moteles
+		{
+			get
+			{
+				return this._Moteles;
+			}
+			set
+			{
+				this._Moteles.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Moteles(Motele entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sectore = this;
+		}
+		
+		private void detach_Moteles(Motele entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sectore = null;
 		}
 	}
 }

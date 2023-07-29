@@ -1,27 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Microproyecto" Class="DBLibraryEntityDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-J96M7O62;Initial Catalog=Microproyecto;Integrated Security=True" SettingsObjectName="Datos.Properties.Settings" SettingsPropertyName="MicroproyectoConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Tipo_Habitacion" Member="Tipo_Habitacions">
-    <Type Name="Tipo_Habitacion">
-      <Column Name="ID_TipoHabitacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Tipo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Association Name="Tipo_Habitacion__HabitacionXMotel" Member="_HabitacionXMotels" ThisKey="ID_TipoHabitacion" OtherKey="ID_TipoHabitacion" Type="_HabitacionXMotel" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Sectores" Member="Sectores">
-    <Type Name="Sectore">
-      <Column Name="ID_Sector" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Nombre_Sector" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Association Name="Sectore_Motele" Member="Moteles" ThisKey="ID_Sector" OtherKey="ID_Sector" Type="Motele" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Resenas_Motel" Member="Resenas_Motels">
-    <Type Name="Resenas_Motel">
-      <Column Name="ID_ReseñaMotel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_Motel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Reseña" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Association Name="Motele_Resenas_Motel" Member="Motele" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Motele" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[ HabitacionXMotel]" Member="_HabitacionXMotels">
     <Type Name="_HabitacionXMotel">
       <Column Name="ID_TipoHabitacionXModel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -30,6 +8,13 @@
       <Column Name="Precio" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
       <Association Name="Tipo_Habitacion__HabitacionXMotel" Member="Tipo_Habitacion" ThisKey="ID_TipoHabitacion" OtherKey="ID_TipoHabitacion" Type="Tipo_Habitacion" IsForeignKey="true" />
       <Association Name="Motele__HabitacionXMotel" Member="Motele" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Motele" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tipo_Habitacion" Member="Tipo_Habitacions">
+    <Type Name="Tipo_Habitacion">
+      <Column Name="ID_TipoHabitacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="Tipo_Habitacion__HabitacionXMotel" Member="_HabitacionXMotels" ThisKey="ID_TipoHabitacion" OtherKey="ID_TipoHabitacion" Type="_HabitacionXMotel" />
     </Type>
   </Table>
   <Table Name="dbo.Formas_de_pago" Member="Formas_de_pagos">
@@ -50,6 +35,22 @@
       <Association Name="Motele_Formas_de_pagoXMotele" Member="Motele" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Motele" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Lista_Usuario" Member="Lista_Usuarios">
+    <Type Name="Lista_Usuario">
+      <Column Name="Id_Usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom_usuario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Passwd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo_usuario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogMantenimiento_Tablas" Member="LogMantenimiento_Tablas">
+    <Type Name="LogMantenimiento_Tabla">
+      <Column Name="id_Tabla" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion_Mant" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Moteles" Member="Moteles">
     <Type Name="Motele">
       <Column Name="ID_Motel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -57,10 +58,10 @@
       <Column Name="Ubicacion" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="ID_Calificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ID_Sector" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Motele_Resenas_Motel" Member="Resenas_Motels" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Resenas_Motel" />
       <Association Name="Motele__HabitacionXMotel" Member="_HabitacionXMotels" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="_HabitacionXMotel" />
       <Association Name="Motele_Formas_de_pagoXMotele" Member="Formas_de_pagoXMoteles" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Formas_de_pagoXMotele" />
       <Association Name="Motele_Puntuacion" Member="Puntuacions" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Puntuacion" />
+      <Association Name="Motele_Resenas_Motel" Member="Resenas_Motels" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Resenas_Motel" />
       <Association Name="Sectore_Motele" Member="Sectore" ThisKey="ID_Sector" OtherKey="ID_Sector" Type="Sectore" IsForeignKey="true" />
     </Type>
   </Table>
@@ -71,6 +72,21 @@
       <Column Name="Fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Calificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Motele_Puntuacion" Member="Motele" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Motele" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Resenas_Motel" Member="Resenas_Motels">
+    <Type Name="Resenas_Motel">
+      <Column Name="ID_ReseñaMotel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Motel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Reseña" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Motele_Resenas_Motel" Member="Motele" ThisKey="ID_Motel" OtherKey="ID_Motel" Type="Motele" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sectores" Member="Sectores">
+    <Type Name="Sectore">
+      <Column Name="ID_Sector" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre_Sector" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="Sectore_Motele" Member="Moteles" ThisKey="ID_Sector" OtherKey="ID_Sector" Type="Motele" />
     </Type>
   </Table>
 </Database>
