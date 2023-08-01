@@ -1,0 +1,25 @@
+﻿@model List<Datos.DBConexion.LogMantenimiento_Tabla>
+
+<h1>log</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Log ID</th>
+            <th>Usuario</th>
+            <th>Descripcion</th>
+            <!-- Add more columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>@log.id_Tabla</td>
+                <td>@log.Usuario</td>
+                <td>@log.Descripcion_Mant</td>
+                <!-- Add more columns as needed -->
+            </tr>
+        }
+    </tbody>
+</table>

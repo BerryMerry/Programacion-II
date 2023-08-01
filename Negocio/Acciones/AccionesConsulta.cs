@@ -28,6 +28,8 @@ namespace Modelo.Acciones
         {
             return dbLibContext.Formas_de_pagoXMoteles.ToList();
         }
+
+       
         #endregion
 
         //Metodo para guardar datos de moteles en la base de datos

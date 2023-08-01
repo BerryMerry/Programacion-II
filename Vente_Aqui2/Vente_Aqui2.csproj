@@ -184,7 +184,7 @@
     <Content Include="Views\Seguridad\Login.cshtml" />
     <Content Include="Views\Registrar\VistaAdministrador.cshtml" />
     <Content Include="Views\Registrar\VistaCliente.cshtml" />
-    <Content Include="Views\Mantenimiento\LogMantenimiento.cshtml" />
+    <Content Include="Views\Mantenimiento\LogsMantenimiento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

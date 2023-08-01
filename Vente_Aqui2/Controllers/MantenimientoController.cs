@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Datos.DBConexion;
+using Modelo;
+using Modelo.Acciones;
+using Negocio.Acciones;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,11 +14,15 @@ namespace Vente_Aqui2.Controllers
 
     public class MantenimientoController : Controller
     {
+        public AccionesMantenimiento mant = new AccionesMantenimiento();
 
         //Llamar a vista para poder realizar el loggeo de las acciones de mantenimiento
-        public ActionResult LogMantenimiento()
+
+       
+        public ActionResult LogsMantenimiento()
         {
-            return View();
+            List<LogMantenimiento_Tabla> Log = mant.LogMantenimiento_Tablas();
+            return View(Log);
         }
 
     }
