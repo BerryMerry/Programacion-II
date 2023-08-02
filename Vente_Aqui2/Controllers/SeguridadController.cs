@@ -28,13 +28,13 @@ namespace Vente_Aqui2.Controllers
             string vista= "";
             string controlador = "";
 
-            if (Usuario.Exists(x => x.Nom_usuario == uname && x.Passwd == psw && x.Tipo_usuario == "Administrador"))
+            if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Administrador"))
             {
                 vista = "VistaAdministrador";
                 controlador = "Registrar";
                 return RedirectToAction(vista, controlador);
             }
-            else if (Usuario.Exists(x => x.Nom_usuario == uname && x.Passwd == psw && x.Tipo_usuario == "Cliente"))
+            else if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Cliente"))
             {
                 vista = "VistaCliente";
                 controlador = "Registrar";

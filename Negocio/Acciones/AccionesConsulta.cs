@@ -14,9 +14,9 @@ namespace Modelo.Acciones
         {
         //Metodo de listado de moteles 
         #region ListadoMoteles
-        public List<Motele> listMoteles()
+        public List<Motel> listMoteles()
             {
-            return dbLibContext.Moteles.ToList();
+            return dbLibContext.Motels.ToList();
             }
 
         public List<_HabitacionXMotel> listHabitacion()
@@ -24,10 +24,10 @@ namespace Modelo.Acciones
             return dbLibContext._HabitacionXMotels.ToList();
         }
 
-        public List<Formas_de_pagoXMotele> listFormadePago()
-        {
-            return dbLibContext.Formas_de_pagoXMoteles.ToList();
-        }
+        //public List<Formas_de_pagoXMotele> listFormadePago()
+        //{
+        //    return dbLibContext.Formas_de_pagoXMoteles.ToList();
+        //}
 
        
         #endregion
@@ -39,16 +39,16 @@ namespace Modelo.Acciones
             string resultado = "";
             try
             {
-                Motele moteles = new Motele
+                Motel moteles = new Motel
                 {
                     Nombre = nombre,
                     Ubicacion = ubicacion,
-                    ID_Sector = idsector,
-                    ID_Calificacion = idcalificacion,
+                    //ID_Sector = idsector,
+                    //ID_Calificacion = idcalificacion,
 
                 };
 
-                dbLibContext.Moteles.InsertOnSubmit(moteles);
+                dbLibContext.Motels.InsertOnSubmit(moteles);
                 dbLibContext.SubmitChanges();
 
                 return resultado = "Se guardó correctamente";

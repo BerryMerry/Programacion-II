@@ -33,5 +33,16 @@ namespace Datos.Properties {
                 return ((string)(this["MicroproyectoConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-J96M7O62\\SQLEXPRESS02;Initial Catalog=Microproyecto_prog;Integ" +
+            "rated Security=True")]
+        public string Microproyecto_progConnectionString {
+            get {
+                return ((string)(this["Microproyecto_progConnectionString"]));
+            }
+        }
     }
 }
