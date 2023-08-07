@@ -13,6 +13,35 @@ namespace Vente_Aqui2.Controllers
         //Vinculacion a Acciones Consulta en capa de Datos
         public AccionesConsulta validar = new AccionesConsulta();
 
+        //Creando la vista del signup
+        public ActionResult signup()
+        {
+            return View();
+        }
+        [HttpPost]
+        public string RegistrarUsuario(string uname = "", string psw = "", string psw2 = "")
+        {
+           
+            try
+            {
+                if (psw == psw2)
+                {
+                    validar.ReidtrarUsuarios(uname, psw2);
+                    
+                    return "Se registro el usuario";
+                }
+                else
+                {
+                    return "Hay que ver";
+                    
+                }
+            }
+            catch
+            {
+                return "Algo salio mal";
+            }
+
+        }
         //Retorno de vista para Login
         public ActionResult Login()
         {
@@ -28,13 +57,13 @@ namespace Vente_Aqui2.Controllers
             string vista= "";
             string controlador = "";
 
-            if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Administrador"))
+            if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Admin"))
             {
                 vista = "VistaAdministrador";
                 controlador = "Registrar";
                 return RedirectToAction(vista, controlador);
             }
-            else if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Cliente"))
+            else if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Client"))
             {
                 vista = "VistaCliente";
                 controlador = "Registrar";

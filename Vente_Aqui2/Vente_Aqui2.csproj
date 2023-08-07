@@ -185,6 +185,7 @@
     <Content Include="Views\Registrar\VistaAdministrador.cshtml" />
     <Content Include="Views\Registrar\VistaCliente.cshtml" />
     <Content Include="Views\Mantenimiento\LogsMantenimiento.cshtml" />
+    <Content Include="Views\Seguridad\signup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,6 +21,7 @@
     <Type Name="Formas_de_pago">
       <Column Name="Id_FormadePago" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Forma_pago" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="Formas_de_pago_Motel_Forma_Pago" Member="Motel_Forma_Pagos" ThisKey="Id_FormadePago" OtherKey="Id_Formas_Pago" Type="Motel_Forma_Pago" />
     </Type>
   </Table>
   <Table Name="dbo.Lista_Usuarios" Member="Lista_Usuarios">
@@ -46,11 +47,19 @@
       <Column Name="Id_Motel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Nombre" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="Ubicacion" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Forma_pago" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="Servicios" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="Id_Sector" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Motel__HabitacionXMotel" Member="_HabitacionXMotels" ThisKey="Id_Motel" OtherKey="Id_Motel" Type="_HabitacionXMotel" />
+      <Association Name="Motel_Motel_Forma_Pago" Member="Motel_Forma_Pagos" ThisKey="Id_Motel" OtherKey="Id_Motel" Type="Motel_Forma_Pago" />
       <Association Name="Motel_Puntuacione" Member="Puntuaciones" ThisKey="Id_Motel" OtherKey="Id_Motel" Type="Puntuacione" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Motel_Forma_Pago" Member="Motel_Forma_Pagos">
+    <Type Name="Motel_Forma_Pago">
+      <Column Name="Id_Motel_forma_pago" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id_Motel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Formas_Pago" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Motel_Motel_Forma_Pago" Member="Motel" ThisKey="Id_Motel" OtherKey="Id_Motel" Type="Motel" IsForeignKey="true" />
+      <Association Name="Formas_de_pago_Motel_Forma_Pago" Member="Formas_de_pago" ThisKey="Id_Formas_Pago" OtherKey="Id_FormadePago" Type="Formas_de_pago" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Puntuaciones" Member="Puntuaciones">

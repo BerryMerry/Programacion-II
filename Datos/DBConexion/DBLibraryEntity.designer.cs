@@ -48,6 +48,9 @@ namespace Datos.DBConexion
     partial void InsertMotel(Motel instance);
     partial void UpdateMotel(Motel instance);
     partial void DeleteMotel(Motel instance);
+    partial void InsertMotel_Forma_Pago(Motel_Forma_Pago instance);
+    partial void UpdateMotel_Forma_Pago(Motel_Forma_Pago instance);
+    partial void DeleteMotel_Forma_Pago(Motel_Forma_Pago instance);
     partial void InsertPuntuacione(Puntuacione instance);
     partial void UpdatePuntuacione(Puntuacione instance);
     partial void DeletePuntuacione(Puntuacione instance);
@@ -131,6 +134,14 @@ namespace Datos.DBConexion
 			get
 			{
 				return this.GetTable<Motel>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Motel_Forma_Pago> Motel_Forma_Pagos
+		{
+			get
+			{
+				return this.GetTable<Motel_Forma_Pago>();
 			}
 		}
 		
@@ -491,6 +502,8 @@ namespace Datos.DBConexion
 		
 		private string _Forma_pago;
 		
+		private EntitySet<Motel_Forma_Pago> _Motel_Forma_Pagos;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -503,6 +516,7 @@ namespace Datos.DBConexion
 		
 		public Formas_de_pago()
 		{
+			this._Motel_Forma_Pagos = new EntitySet<Motel_Forma_Pago>(new Action<Motel_Forma_Pago>(this.attach_Motel_Forma_Pagos), new Action<Motel_Forma_Pago>(this.detach_Motel_Forma_Pagos));
 			OnCreated();
 		}
 		
@@ -546,6 +560,19 @@ namespace Datos.DBConexion
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Formas_de_pago_Motel_Forma_Pago", Storage="_Motel_Forma_Pagos", ThisKey="Id_FormadePago", OtherKey="Id_Formas_Pago")]
+		public EntitySet<Motel_Forma_Pago> Motel_Forma_Pagos
+		{
+			get
+			{
+				return this._Motel_Forma_Pagos;
+			}
+			set
+			{
+				this._Motel_Forma_Pagos.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -564,6 +591,18 @@ namespace Datos.DBConexion
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Motel_Forma_Pagos(Motel_Forma_Pago entity)
+		{
+			this.SendPropertyChanging();
+			entity.Formas_de_pago = this;
+		}
+		
+		private void detach_Motel_Forma_Pagos(Motel_Forma_Pago entity)
+		{
+			this.SendPropertyChanging();
+			entity.Formas_de_pago = null;
 		}
 	}
 	
@@ -916,13 +955,11 @@ namespace Datos.DBConexion
 		
 		private string _Ubicacion;
 		
-		private string _Forma_pago;
-		
-		private string _Servicios;
-		
 		private int _Id_Sector;
 		
 		private EntitySet<_HabitacionXMotel> @__HabitacionXMotels;
+		
+		private EntitySet<Motel_Forma_Pago> _Motel_Forma_Pagos;
 		
 		private EntitySet<Puntuacione> _Puntuaciones;
 		
@@ -936,10 +973,6 @@ namespace Datos.DBConexion
     partial void OnNombreChanged();
     partial void OnUbicacionChanging(string value);
     partial void OnUbicacionChanged();
-    partial void OnForma_pagoChanging(string value);
-    partial void OnForma_pagoChanged();
-    partial void OnServiciosChanging(string value);
-    partial void OnServiciosChanged();
     partial void OnId_SectorChanging(int value);
     partial void OnId_SectorChanged();
     #endregion
@@ -947,6 +980,7 @@ namespace Datos.DBConexion
 		public Motel()
 		{
 			this.@__HabitacionXMotels = new EntitySet<_HabitacionXMotel>(new Action<_HabitacionXMotel>(this.attach__HabitacionXMotels), new Action<_HabitacionXMotel>(this.detach__HabitacionXMotels));
+			this._Motel_Forma_Pagos = new EntitySet<Motel_Forma_Pago>(new Action<Motel_Forma_Pago>(this.attach_Motel_Forma_Pagos), new Action<Motel_Forma_Pago>(this.detach_Motel_Forma_Pagos));
 			this._Puntuaciones = new EntitySet<Puntuacione>(new Action<Puntuacione>(this.attach_Puntuaciones), new Action<Puntuacione>(this.detach_Puntuaciones));
 			OnCreated();
 		}
@@ -1011,46 +1045,6 @@ namespace Datos.DBConexion
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Forma_pago", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string Forma_pago
-		{
-			get
-			{
-				return this._Forma_pago;
-			}
-			set
-			{
-				if ((this._Forma_pago != value))
-				{
-					this.OnForma_pagoChanging(value);
-					this.SendPropertyChanging();
-					this._Forma_pago = value;
-					this.SendPropertyChanged("Forma_pago");
-					this.OnForma_pagoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Servicios", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string Servicios
-		{
-			get
-			{
-				return this._Servicios;
-			}
-			set
-			{
-				if ((this._Servicios != value))
-				{
-					this.OnServiciosChanging(value);
-					this.SendPropertyChanging();
-					this._Servicios = value;
-					this.SendPropertyChanged("Servicios");
-					this.OnServiciosChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Sector", DbType="Int NOT NULL")]
 		public int Id_Sector
 		{
@@ -1081,6 +1075,19 @@ namespace Datos.DBConexion
 			set
 			{
 				this.@__HabitacionXMotels.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Motel_Motel_Forma_Pago", Storage="_Motel_Forma_Pagos", ThisKey="Id_Motel", OtherKey="Id_Motel")]
+		public EntitySet<Motel_Forma_Pago> Motel_Forma_Pagos
+		{
+			get
+			{
+				return this._Motel_Forma_Pagos;
+			}
+			set
+			{
+				this._Motel_Forma_Pagos.Assign(value);
 			}
 		}
 		
@@ -1129,6 +1136,18 @@ namespace Datos.DBConexion
 			entity.Motel = null;
 		}
 		
+		private void attach_Motel_Forma_Pagos(Motel_Forma_Pago entity)
+		{
+			this.SendPropertyChanging();
+			entity.Motel = this;
+		}
+		
+		private void detach_Motel_Forma_Pagos(Motel_Forma_Pago entity)
+		{
+			this.SendPropertyChanging();
+			entity.Motel = null;
+		}
+		
 		private void attach_Puntuaciones(Puntuacione entity)
 		{
 			this.SendPropertyChanging();
@@ -1139,6 +1158,198 @@ namespace Datos.DBConexion
 		{
 			this.SendPropertyChanging();
 			entity.Motel = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Motel_Forma_Pago")]
+	public partial class Motel_Forma_Pago : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id_Motel_forma_pago;
+		
+		private int _Id_Motel;
+		
+		private int _Id_Formas_Pago;
+		
+		private EntityRef<Motel> _Motel;
+		
+		private EntityRef<Formas_de_pago> _Formas_de_pago;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_Motel_forma_pagoChanging(int value);
+    partial void OnId_Motel_forma_pagoChanged();
+    partial void OnId_MotelChanging(int value);
+    partial void OnId_MotelChanged();
+    partial void OnId_Formas_PagoChanging(int value);
+    partial void OnId_Formas_PagoChanged();
+    #endregion
+		
+		public Motel_Forma_Pago()
+		{
+			this._Motel = default(EntityRef<Motel>);
+			this._Formas_de_pago = default(EntityRef<Formas_de_pago>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Motel_forma_pago", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id_Motel_forma_pago
+		{
+			get
+			{
+				return this._Id_Motel_forma_pago;
+			}
+			set
+			{
+				if ((this._Id_Motel_forma_pago != value))
+				{
+					this.OnId_Motel_forma_pagoChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Motel_forma_pago = value;
+					this.SendPropertyChanged("Id_Motel_forma_pago");
+					this.OnId_Motel_forma_pagoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Motel", DbType="Int NOT NULL")]
+		public int Id_Motel
+		{
+			get
+			{
+				return this._Id_Motel;
+			}
+			set
+			{
+				if ((this._Id_Motel != value))
+				{
+					if (this._Motel.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnId_MotelChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Motel = value;
+					this.SendPropertyChanged("Id_Motel");
+					this.OnId_MotelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Formas_Pago", DbType="Int NOT NULL")]
+		public int Id_Formas_Pago
+		{
+			get
+			{
+				return this._Id_Formas_Pago;
+			}
+			set
+			{
+				if ((this._Id_Formas_Pago != value))
+				{
+					if (this._Formas_de_pago.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnId_Formas_PagoChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Formas_Pago = value;
+					this.SendPropertyChanged("Id_Formas_Pago");
+					this.OnId_Formas_PagoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Motel_Motel_Forma_Pago", Storage="_Motel", ThisKey="Id_Motel", OtherKey="Id_Motel", IsForeignKey=true)]
+		public Motel Motel
+		{
+			get
+			{
+				return this._Motel.Entity;
+			}
+			set
+			{
+				Motel previousValue = this._Motel.Entity;
+				if (((previousValue != value) 
+							|| (this._Motel.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Motel.Entity = null;
+						previousValue.Motel_Forma_Pagos.Remove(this);
+					}
+					this._Motel.Entity = value;
+					if ((value != null))
+					{
+						value.Motel_Forma_Pagos.Add(this);
+						this._Id_Motel = value.Id_Motel;
+					}
+					else
+					{
+						this._Id_Motel = default(int);
+					}
+					this.SendPropertyChanged("Motel");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Formas_de_pago_Motel_Forma_Pago", Storage="_Formas_de_pago", ThisKey="Id_Formas_Pago", OtherKey="Id_FormadePago", IsForeignKey=true)]
+		public Formas_de_pago Formas_de_pago
+		{
+			get
+			{
+				return this._Formas_de_pago.Entity;
+			}
+			set
+			{
+				Formas_de_pago previousValue = this._Formas_de_pago.Entity;
+				if (((previousValue != value) 
+							|| (this._Formas_de_pago.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Formas_de_pago.Entity = null;
+						previousValue.Motel_Forma_Pagos.Remove(this);
+					}
+					this._Formas_de_pago.Entity = value;
+					if ((value != null))
+					{
+						value.Motel_Forma_Pagos.Add(this);
+						this._Id_Formas_Pago = value.Id_FormadePago;
+					}
+					else
+					{
+						this._Id_Formas_Pago = default(int);
+					}
+					this.SendPropertyChanged("Formas_de_pago");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

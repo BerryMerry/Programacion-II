@@ -23,10 +23,10 @@ namespace Vente_Aqui2.Controllers
         [HttpPost]
 
         //Introduccion de datos leidos a la base de datos
-            public string RegistrarDatos(string nombre_text = "",string Ubicacion_text = "", int idcalificacion = 0, int idsector = 0)
+            public string RegistrarDatos(string nombre_text = "",string Ubicacion_text = "", int idsector = 0, int Pago1 = 0, int Pago2 =0)
             {
                 
-                return consulta.registrarMotel(nombre_text, Ubicacion_text, idcalificacion, idsector);
+                return consulta.registrarMotel(nombre_text, Ubicacion_text,idsector, Pago1, Pago2);
             }
 
         //Retorno de vista de administrador a partir de login

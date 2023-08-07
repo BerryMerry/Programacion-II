@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "signup";
+}
+
+<h2>signup</h2>
+
+<form action="/Seguridad/RegistrarUsuario" method="post">
+    <div class="imgcontainer">
+        <img src="https://www.flaticon.com/free-icon/person_2815428" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="psw2"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw2" required>
+
+        <button type="submit">Enter</button>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Ya estas registrado? <a href="https://localhost:44348/Seguridad/Login">Inicia secion</a></span>
+    </div>
+</form>
