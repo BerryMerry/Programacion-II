@@ -1,6 +1,27 @@
 ﻿@model List<Datos.DBConexion.LogMantenimiento_Tabla>
 
-<h1>log</h1>
+<h1>Tabla de historial de mantenimientos</h1>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin: 15px;
+        border-radius: 8px;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+</style>
+
 
 <table>
     <thead>
@@ -8,6 +29,7 @@
             <th>Log ID</th>
             <th>Usuario</th>
             <th>Descripcion</th>
+            <th>Fecha</th>
             <!-- Add more columns as needed -->
         </tr>
     </thead>

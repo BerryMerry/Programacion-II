@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Web.Services.Description;
 
 namespace Vente_Aqui2.Controllers
 {
@@ -18,35 +18,50 @@ namespace Vente_Aqui2.Controllers
         {
             return View();
         }
+        
         [HttpPost]
-        public string RegistrarUsuario(string uname = "", string psw = "", string psw2 = "")
+        public ActionResult Verificar_Usuario(string uname = "", string psw = "", string psw2 = "", int user = 0) 
         {
-           
-            try
+            bool verificado = false;
+            while (verificado != true)
             {
                 if (psw == psw2)
                 {
                     validar.ReidtrarUsuarios(uname, psw2);
-                    
-                    return "Se registro el usuario";
+                    verificado = true;
                 }
                 else
-                {
-                    return "Hay que ver";
-                    
+                {                    
+                    verificado = false;
                 }
-            }
-            catch
+            }            
+            
+            string vista = "";
+            string controlador = "";
+            if (user == 1)
             {
-                return "Algo salio mal";
+                vista = "VistaCliente";
+                controlador = "Registrar";
+                return RedirectToAction(vista, controlador);
+            }else if(user == 2)
+            {
+                vista = "VistaAdministrador";
+                controlador = "Registrar";
+                return RedirectToAction(vista, controlador);
             }
-
+            else
+            {
+                vista = "/Home/Error/";
+            }
+            return RedirectToAction("Home", "Home");
         }
         //Retorno de vista para Login
         public ActionResult Login()
         {
             return View();
         }
+        
+        
 
         [HttpPost]
 
