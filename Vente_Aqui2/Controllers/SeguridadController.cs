@@ -1,4 +1,5 @@
 ﻿using Modelo.Acciones;
+using Negocio.Acciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,10 @@ namespace Vente_Aqui2.Controllers
     {
         //Vinculacion a Acciones Consulta en capa de Datos
         public AccionesConsulta validar = new AccionesConsulta();
+        public AccionesMantenimiento mantenimiento = new AccionesMantenimiento();
 
         //Creando la vista del signup
+        #region Sign-up
         public ActionResult signup()
         {
             return View();
@@ -27,7 +30,7 @@ namespace Vente_Aqui2.Controllers
             {
                 if (psw == psw2)
                 {
-                    validar.ReidtrarUsuarios(uname, psw2);
+                    validar.RegistrarUsuarios(uname, psw2);
                     verificado = true;
                 }
                 else
@@ -37,6 +40,7 @@ namespace Vente_Aqui2.Controllers
             }            
             
             string vista = "";
+            
             string controlador = "";
             if (user == 1)
             {
@@ -55,10 +59,14 @@ namespace Vente_Aqui2.Controllers
             }
             return RedirectToAction("Home", "Home");
         }
+        #endregion
+
         //Retorno de vista para Login
+
+        #region Login
         public ActionResult Login()
         {
-            return View();
+          return View("Login");
         }
         
         
@@ -71,25 +79,35 @@ namespace Vente_Aqui2.Controllers
             var Usuario = validar.listadousuarios().ToList();
             string vista= "";
             string controlador = "";
+            mantenimiento.User = uname;
 
-            if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Admin"))
+            try
             {
-                vista = "VistaAdministrador";
-                controlador = "Registrar";
-                return RedirectToAction(vista, controlador);
-            }
-            else if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Client"))
-            {
-                vista = "VistaCliente";
-                controlador = "Registrar";
-                return RedirectToAction(vista, controlador);
-            }
+                if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Admin"))
+                {
+                    vista = "VistaAdministrador";
+                    controlador = "Registrar";
+                    return RedirectToAction(vista, controlador);
+                }
+                else if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Client"))
+                {
+                    vista = "VistaCliente";
+                    controlador = "Registrar";
+                    return RedirectToAction(vista, controlador);
+                }
 
-            else {
-                vista = "/Home/Error/";
+                else
+                {
+                    vista = "/Home/Error/";
+                }
+                return RedirectToAction("Home", "Home");
+            }catch (Exception ex)
+            {
+                return View(ex);
             }
-            return RedirectToAction("Home", "Home");
 
         }
+
+        #endregion 
     }
 }

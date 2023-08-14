@@ -15,6 +15,7 @@ namespace Vente_Aqui2.Controllers
     public class MantenimientoController : Controller
     {
         public AccionesMantenimiento mant = new AccionesMantenimiento();
+        
 
         //Llamar a vista para poder realizar el loggeo de las acciones de mantenimiento
 
@@ -23,6 +24,20 @@ namespace Vente_Aqui2.Controllers
         {
             List<LogMantenimiento_Tabla> Log = mant.LogMantenimiento_Tablas();
             return View(Log);
+        }
+
+        [HttpPost]        
+        public string GuardarDatos(string txtDescripcion = "")
+        {
+            try
+            {
+                mant.RegistrarMant(txtDescripcion);
+                return "Se guardò correctamente.";
+            }
+            catch
+            {
+                return "No se pudo guardar.";
+            }
         }
 
     }

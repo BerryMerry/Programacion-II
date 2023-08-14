@@ -122,8 +122,8 @@ namespace Modelo.Acciones
         #endregion
         
         //Guardar nuevos usuarios        
-        #region
-        public string ReidtrarUsuarios(string Usuario, string pws)
+        #region Guardar nuevos usuarios
+        public string RegistrarUsuarios(string Usuario, string pws)
         {
             try
             {

@@ -30,16 +30,6 @@
       <Column Name="Nom_Usuario" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="Psswd" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="Tipo_usuario" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Association Name="Lista_Usuario_LogMantenimiento_Tabla" Member="LogMantenimiento_Tablas" ThisKey="Id_Usuario" OtherKey="Id_Usuario" Type="LogMantenimiento_Tabla" />
-    </Type>
-  </Table>
-  <Table Name="dbo.LogMantenimiento_Tabla" Member="LogMantenimiento_Tablas">
-    <Type Name="LogMantenimiento_Tabla">
-      <Column Name="Id_Tabla" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Lista_Usuario_LogMantenimiento_Tabla" Member="Lista_Usuario" ThisKey="Id_Usuario" OtherKey="Id_Usuario" Type="Lista_Usuario" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Motel" Member="Motels">
@@ -76,6 +66,14 @@
     <Type Name="Sectore">
       <Column Name="Id_Sector" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Sector" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogMantenimiento_Tabla" Member="LogMantenimiento_Tablas">
+    <Type Name="LogMantenimiento_Tabla">
+      <Column Name="Id_Tabla" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom_Usuario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

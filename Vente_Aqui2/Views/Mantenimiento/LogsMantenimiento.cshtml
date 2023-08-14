@@ -1,36 +1,19 @@
 ﻿@model List<Datos.DBConexion.LogMantenimiento_Tabla>
 
+<head>
+</head>
 <h1>Tabla de historial de mantenimientos</h1>
-<style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-        margin: 15px;
-        border-radius: 8px;
-    }
-
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-
-</style>
 
 
-<table>
+
+@*<table>
     <thead>
         <tr>
             <th>Log ID</th>
             <th>Usuario</th>
             <th>Descripcion</th>
             <th>Fecha</th>
-            <!-- Add more columns as needed -->
+             Add more columns as needed 
         </tr>
     </thead>
     <tbody>
@@ -41,8 +24,91 @@
                 <td>@log.Id_Usuario</td>
                 <td>@log.Descripcion</td>
                 <td>@log.Fecha</td>
-                <!-- Add more columns as needed -->
+                 Add more columns as needed 
             </tr>
         }
     </tbody>
-</table>
+</table>*@
+
+<form action="/Mantenimiento/GuardarDatos" method="post" style="margin:0%; width:50%; float: center;">
+
+    <div class="container" style="width: 100%;">     
+
+        <label for="psw"><b>Descripcion</b></label>
+        <input type="text" placeholder="Digite la descripcion" name="txtDescripcion" required>        
+        <button type="submit">Guardar</button> <br />
+
+    </div>
+
+    @*<div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+                </div>*@
+</form>
+
+<div class="panel panel-default" id="panelTablas">
+    <div class="panel panel-heading" style="text-align: center;"><strong>Mantenimientos de Tablas</strong> </div>
+    <div class="panel panel-body">
+        
+        @*<div class="col-lg-12">
+            <div class="col-lg-4">
+                <div class="col-lg-4">
+                    <label>Usuario:</label>
+                    <input type="text" name="idUsuario" class="form-control GeneralForm" id="idUsuario" />
+                </div>
+                <label>Descripción:</label>
+                <input type="text" name="txtDescripcion" class="form-control GeneralForm " id="txtDescripcion" />
+            </div>
+           
+            <div class="col-lg-4" style="padding:initial;  ">
+                <br />
+                <a class="btn btn-primary btnSave" style="width: 25% "> Guardar</a>
+                <a class="btn btn-primary btnEdit" style="width: 25%; display:none;"> Editar</a>
+
+            </div>
+            <br />
+        </div>*@
+        <br />
+        <table class="table table-responsive" id="tblMantenimientos">
+            <!--Cabecera de las columnas-->
+            <thead>
+                <tr>
+                    <th>ID Tabla</th>
+                    <th>ID Usuario</th>
+                    <th>Descripción</th>
+                    <th>Creación</th>
+                    <th>Modificación</th>
+                    <th>Anulación</th>
+                    <th>Estatus</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @foreach (var log in Model)
+                {
+                    <tr class="context-menu-one-mantTablas" data-id="@log.Id_Tabla" data-idusuario="@log.Id_Usuario" data-descripcion="@log.Descripcion" data-fecha="@log.Fecha" >
+
+                        <td>@log.Id_Tabla</td>
+                        <td>@log.Id_Usuario</td>
+                        <td>@log.Descripcion</td>
+                        <td>@log.Fecha</td>-->
+                        <td style="color:green;">Activo</td>
+                        }
+                        else
+                        {
+                        <td style="color:red;">Inactivo</td>
+                        }
+
+
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>        
+
+
+    </div>
+
+</div>
+
