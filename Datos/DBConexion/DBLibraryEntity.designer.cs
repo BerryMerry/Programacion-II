@@ -39,9 +39,6 @@ namespace Datos.DBConexion
     partial void InsertFormas_de_pago(Formas_de_pago instance);
     partial void UpdateFormas_de_pago(Formas_de_pago instance);
     partial void DeleteFormas_de_pago(Formas_de_pago instance);
-    partial void InsertLista_Usuario(Lista_Usuario instance);
-    partial void UpdateLista_Usuario(Lista_Usuario instance);
-    partial void DeleteLista_Usuario(Lista_Usuario instance);
     partial void InsertMotel(Motel instance);
     partial void UpdateMotel(Motel instance);
     partial void DeleteMotel(Motel instance);
@@ -57,6 +54,9 @@ namespace Datos.DBConexion
     partial void InsertLogMantenimiento_Tabla(LogMantenimiento_Tabla instance);
     partial void UpdateLogMantenimiento_Tabla(LogMantenimiento_Tabla instance);
     partial void DeleteLogMantenimiento_Tabla(LogMantenimiento_Tabla instance);
+    partial void InsertLista_Usuario(Lista_Usuario instance);
+    partial void UpdateLista_Usuario(Lista_Usuario instance);
+    partial void DeleteLista_Usuario(Lista_Usuario instance);
     #endregion
 		
 		public DBLibraryEntityDataContext() : 
@@ -113,14 +113,6 @@ namespace Datos.DBConexion
 			}
 		}
 		
-		public System.Data.Linq.Table<Lista_Usuario> Lista_Usuarios
-		{
-			get
-			{
-				return this.GetTable<Lista_Usuario>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Motel> Motels
 		{
 			get
@@ -159,6 +151,21 @@ namespace Datos.DBConexion
 			{
 				return this.GetTable<LogMantenimiento_Tabla>();
 			}
+		}
+		
+		public System.Data.Linq.Table<Lista_Usuario> Lista_Usuarios
+		{
+			get
+			{
+				return this.GetTable<Lista_Usuario>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Registro")]
+		public int Registro([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nom_Usuario", DbType="NVarChar(25)")] string nom_Usuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nom_Usuario);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -603,140 +610,6 @@ namespace Datos.DBConexion
 		{
 			this.SendPropertyChanging();
 			entity.Formas_de_pago = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lista_Usuarios")]
-	public partial class Lista_Usuario : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id_Usuario;
-		
-		private string _Nom_Usuario;
-		
-		private string _Psswd;
-		
-		private string _Tipo_usuario;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnId_UsuarioChanging(int value);
-    partial void OnId_UsuarioChanged();
-    partial void OnNom_UsuarioChanging(string value);
-    partial void OnNom_UsuarioChanged();
-    partial void OnPsswdChanging(string value);
-    partial void OnPsswdChanged();
-    partial void OnTipo_usuarioChanging(string value);
-    partial void OnTipo_usuarioChanged();
-    #endregion
-		
-		public Lista_Usuario()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Usuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id_Usuario
-		{
-			get
-			{
-				return this._Id_Usuario;
-			}
-			set
-			{
-				if ((this._Id_Usuario != value))
-				{
-					this.OnId_UsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._Id_Usuario = value;
-					this.SendPropertyChanged("Id_Usuario");
-					this.OnId_UsuarioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nom_Usuario", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string Nom_Usuario
-		{
-			get
-			{
-				return this._Nom_Usuario;
-			}
-			set
-			{
-				if ((this._Nom_Usuario != value))
-				{
-					this.OnNom_UsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._Nom_Usuario = value;
-					this.SendPropertyChanged("Nom_Usuario");
-					this.OnNom_UsuarioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Psswd", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string Psswd
-		{
-			get
-			{
-				return this._Psswd;
-			}
-			set
-			{
-				if ((this._Psswd != value))
-				{
-					this.OnPsswdChanging(value);
-					this.SendPropertyChanging();
-					this._Psswd = value;
-					this.SendPropertyChanged("Psswd");
-					this.OnPsswdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo_usuario", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
-		public string Tipo_usuario
-		{
-			get
-			{
-				return this._Tipo_usuario;
-			}
-			set
-			{
-				if ((this._Tipo_usuario != value))
-				{
-					this.OnTipo_usuarioChanging(value);
-					this.SendPropertyChanging();
-					this._Tipo_usuario = value;
-					this.SendPropertyChanged("Tipo_usuario");
-					this.OnTipo_usuarioChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -1449,6 +1322,8 @@ namespace Datos.DBConexion
 		
 		private System.DateTime _Fecha;
 		
+		private string _Estatus;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1461,6 +1336,8 @@ namespace Datos.DBConexion
     partial void OnDescripcionChanged();
     partial void OnFechaChanging(System.DateTime value);
     partial void OnFechaChanged();
+    partial void OnEstatusChanging(string value);
+    partial void OnEstatusChanged();
     #endregion
 		
 		public LogMantenimiento_Tabla()
@@ -1544,6 +1421,184 @@ namespace Datos.DBConexion
 					this._Fecha = value;
 					this.SendPropertyChanged("Fecha");
 					this.OnFechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this.OnEstatusChanging(value);
+					this.SendPropertyChanging();
+					this._Estatus = value;
+					this.SendPropertyChanged("Estatus");
+					this.OnEstatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lista_Usuarios")]
+	public partial class Lista_Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id_Usuario;
+		
+		private string _Nom_Usuario;
+		
+		private string _Psswd;
+		
+		private string _Tipo_usuario;
+		
+		private bool _Estatus;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_UsuarioChanging(int value);
+    partial void OnId_UsuarioChanged();
+    partial void OnNom_UsuarioChanging(string value);
+    partial void OnNom_UsuarioChanged();
+    partial void OnPsswdChanging(string value);
+    partial void OnPsswdChanged();
+    partial void OnTipo_usuarioChanging(string value);
+    partial void OnTipo_usuarioChanged();
+    partial void OnEstatusChanging(bool value);
+    partial void OnEstatusChanged();
+    #endregion
+		
+		public Lista_Usuario()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Usuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id_Usuario
+		{
+			get
+			{
+				return this._Id_Usuario;
+			}
+			set
+			{
+				if ((this._Id_Usuario != value))
+				{
+					this.OnId_UsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Usuario = value;
+					this.SendPropertyChanged("Id_Usuario");
+					this.OnId_UsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nom_Usuario", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string Nom_Usuario
+		{
+			get
+			{
+				return this._Nom_Usuario;
+			}
+			set
+			{
+				if ((this._Nom_Usuario != value))
+				{
+					this.OnNom_UsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Nom_Usuario = value;
+					this.SendPropertyChanged("Nom_Usuario");
+					this.OnNom_UsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Psswd", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string Psswd
+		{
+			get
+			{
+				return this._Psswd;
+			}
+			set
+			{
+				if ((this._Psswd != value))
+				{
+					this.OnPsswdChanging(value);
+					this.SendPropertyChanging();
+					this._Psswd = value;
+					this.SendPropertyChanged("Psswd");
+					this.OnPsswdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo_usuario", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string Tipo_usuario
+		{
+			get
+			{
+				return this._Tipo_usuario;
+			}
+			set
+			{
+				if ((this._Tipo_usuario != value))
+				{
+					this.OnTipo_usuarioChanging(value);
+					this.SendPropertyChanging();
+					this._Tipo_usuario = value;
+					this.SendPropertyChanged("Tipo_usuario");
+					this.OnTipo_usuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit NOT NULL")]
+		public bool Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this.OnEstatusChanging(value);
+					this.SendPropertyChanging();
+					this._Estatus = value;
+					this.SendPropertyChanged("Estatus");
+					this.OnEstatusChanged();
 				}
 			}
 		}

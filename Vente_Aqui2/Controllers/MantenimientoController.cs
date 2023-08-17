@@ -26,12 +26,14 @@ namespace Vente_Aqui2.Controllers
             return View(Log);
         }
 
+        
+
         [HttpPost]        
-        public string GuardarDatos(string txtDescripcion = "")
+        public string GuardarDatos(string txtDescripcion = "", string txtNombre = "")
         {
             try
             {
-                mant.RegistrarMant(txtDescripcion);
+                mant.RegistrarMant(txtDescripcion, txtNombre);
                 return "Se guardò correctamente.";
             }
             catch

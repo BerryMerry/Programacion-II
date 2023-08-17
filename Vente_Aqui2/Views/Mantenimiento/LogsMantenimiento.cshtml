@@ -1,4 +1,11 @@
-﻿@model List<Datos.DBConexion.LogMantenimiento_Tabla>
+﻿
+
+@model List<Datos.DBConexion.LogMantenimiento_Tabla>
+
+@{
+    ViewBag.Title = "LogsMantenimiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <head>
 </head>
@@ -6,37 +13,83 @@
 
 
 
-@*<table>
-    <thead>
-        <tr>
-            <th>Log ID</th>
-            <th>Usuario</th>
-            <th>Descripcion</th>
-            <th>Fecha</th>
-             Add more columns as needed 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var log in Model)
-        {
-            <tr>
-                <td>@log.Id_Tabla</td>
-                <td>@log.Id_Usuario</td>
-                <td>@log.Descripcion</td>
-                <td>@log.Fecha</td>
-                 Add more columns as needed 
-            </tr>
-        }
-    </tbody>
-</table>*@
 
-<form action="/Mantenimiento/GuardarDatos" method="post" style="margin:0%; width:50%; float: center;">
 
-    <div class="container" style="width: 100%;">     
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .Guardar {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .boton {
+        padding: 0.5em 1em;
+        border: none;
+        background: rgb(100, 200, 255);
+        cursor: pointer;
+    }
+
+    .table {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        border: none;
+        font-size: 16px;
+        height: auto;
+        margin: 0;
+        outline: 0;
+        padding: 15px;
+        width: 100%;
+        background-color: #a1d1f5;
+        color: #64696d;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+        margin-bottom: 30px;
+    }
+
+    #panelTablas {
+        padding: 20px;
+    }
+
+    .green-font {
+        color: green;
+    }
+
+    .red-font {
+        color: red;
+    }
+
+
+</style>
+
+<form action="/Mantenimiento/GuardarDatos" method="post" class="Guardar">
+
+    <div class="container" style="width: 100%;">
+        <label for="psw"><b>Usuario</b></label>
+        <br />
+        <input type="text" placeholder="Digite el usuario" name="txtNombre" required>
+        <br />
 
         <label for="psw"><b>Descripcion</b></label>
-        <input type="text" placeholder="Digite la descripcion" name="txtDescripcion" required>        
-        <button type="submit">Guardar</button> <br />
+        <br />
+        <input type="text" placeholder="Digite la descripcion" name="txtDescripcion" required>
+        <br />
+        <br />
+        <button type="submit" class="boton">Guardar</button> <br />
 
     </div>
 
@@ -48,27 +101,9 @@
 <div class="panel panel-default" id="panelTablas">
     <div class="panel panel-heading" style="text-align: center;"><strong>Mantenimientos de Tablas</strong> </div>
     <div class="panel panel-body">
-        
-        @*<div class="col-lg-12">
-            <div class="col-lg-4">
-                <div class="col-lg-4">
-                    <label>Usuario:</label>
-                    <input type="text" name="idUsuario" class="form-control GeneralForm" id="idUsuario" />
-                </div>
-                <label>Descripción:</label>
-                <input type="text" name="txtDescripcion" class="form-control GeneralForm " id="txtDescripcion" />
-            </div>
-           
-            <div class="col-lg-4" style="padding:initial;  ">
-                <br />
-                <a class="btn btn-primary btnSave" style="width: 25% "> Guardar</a>
-                <a class="btn btn-primary btnEdit" style="width: 25%; display:none;"> Editar</a>
 
-            </div>
-            <br />
-        </div>*@
         <br />
-        <table class="table table-responsive" id="tblMantenimientos">
+        <table class="table" id="tblMantenimientos">
             <!--Cabecera de las columnas-->
             <thead>
                 <tr>
@@ -86,29 +121,25 @@
             <tbody>
                 @foreach (var log in Model)
                 {
-                    <tr class="context-menu-one-mantTablas" data-id="@log.Id_Tabla" data-idusuario="@log.Id_Usuario" data-descripcion="@log.Descripcion" data-fecha="@log.Fecha" >
+                    <tr class="context-menu-one-mantTablas" data-id="@log.Id_Tabla" data-idusuario="@log.Nom_Usuario" data-descripcion="@log.Descripcion" data-fecha="@log.Fecha" data-estatus="@log.Estatus">
 
                         <td>@log.Id_Tabla</td>
-                        <td>@log.Id_Usuario</td>
+                        <td>@log.Nom_Usuario</td>
                         <td>@log.Descripcion</td>
-                        <td>@log.Fecha</td>-->
-                        <td style="color:green;">Activo</td>
-                        }
-                        else
-                        {
-                        <td style="color:red;">Inactivo</td>
-                        }
-
-
+                        <td>@log.Fecha</td>
+                        <td class="@(log.Estatus == "Activo" ? "green-font" : "red-font")">@log.Estatus </td>                        
+   
+                
                     </tr>
 
                 }
             </tbody>
 
-        </table>        
+        </table>
 
 
     </div>
 
 </div>
+
 

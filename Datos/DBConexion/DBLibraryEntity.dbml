@@ -24,14 +24,6 @@
       <Association Name="Formas_de_pago_Motel_Forma_Pago" Member="Motel_Forma_Pagos" ThisKey="Id_FormadePago" OtherKey="Id_Formas_Pago" Type="Motel_Forma_Pago" />
     </Type>
   </Table>
-  <Table Name="dbo.Lista_Usuarios" Member="Lista_Usuarios">
-    <Type Name="Lista_Usuario">
-      <Column Name="Id_Usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Nom_Usuario" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="Psswd" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="Tipo_usuario" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.Motel" Member="Motels">
     <Type Name="Motel">
       <Column Name="Id_Motel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -74,6 +66,20 @@
       <Column Name="Nom_Usuario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Estatus" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.Lista_Usuarios" Member="Lista_Usuarios">
+    <Type Name="Lista_Usuario">
+      <Column Name="Id_Usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom_Usuario" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Psswd" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo_usuario" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Registro" Method="Registro">
+    <Parameter Name="Nom_Usuario" Parameter="nom_Usuario" Type="System.String" DbType="NVarChar(25)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

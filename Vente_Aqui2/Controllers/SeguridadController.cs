@@ -79,11 +79,11 @@ namespace Vente_Aqui2.Controllers
             var Usuario = validar.listadousuarios().ToList();
             string vista= "";
             string controlador = "";
-            mantenimiento.User = uname;
+            mantenimiento.Cambiar_Estado(uname);
 
             try
             {
-                if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Admin"))
+                if (Usuario.Exists(x => x.Nom_Usuario == uname && x.Psswd == psw && x.Tipo_usuario == "Administrador"))
                 {
                     vista = "VistaAdministrador";
                     controlador = "Registrar";
