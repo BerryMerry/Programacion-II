@@ -1,0 +1,254 @@
+﻿
+@{
+    ViewBag.Title = "Sign up";
+    Layout = null;
+}
+
+
+<style>
+    /* BASIC */
+
+    html {
+        background-color: #56baed;
+    }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        background-color: #56baed;
+    }
+
+    a {
+        color: #92badd;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        display: inline-block;
+        margin: 40px 8px 10px 8px;
+        color: #cccccc;
+    }
+
+
+
+    /* STRUCTURE */
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+    }
+
+    #formContent {
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        background: #fff;
+        padding: 30px;
+        width: 90%;
+        max-width: 450px;
+        position: relative;
+        padding: 0px;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        text-align: center;
+        align-content: center;
+    }
+
+    #formFooter {
+        background-color: #f6f6f6;
+        border-top: 1px solid #dce8f1;
+        padding: 25px;
+        text-align: center;
+        -webkit-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+    }
+
+
+
+    /* TABS */
+
+    h2.inactive {
+        color: #cccccc;
+    }
+
+    h2.active {
+        color: #0d0d0d;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+
+
+    /* FORM TYPOGRAPHY*/
+
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+        input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+            background-color: #39ace7;
+        }
+
+        input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
+            -moz-transform: scale(0.95);
+            -webkit-transform: scale(0.95);
+            -o-transform: scale(0.95);
+            -ms-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+
+    input[type=text] {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 100%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+        input[type=text]:focus {
+            background-color: #fff;
+            border-bottom: 2px solid #5fbae9;
+        }
+
+        input[type=text]:placeholder {
+            color: #cccccc;
+        }
+
+
+
+
+    /* OTHERS */
+
+    *:focus {
+        outline: none;
+    }
+
+    #icon {
+        width: 60%;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */ -->
+    @*@media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+
+        *@
+
+</style>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <h2>Crea tu cuenta</h2>
+            </div>
+
+            <!-- Login Form -->
+            <form action="/Seguridad/Verificar_Usuario" method="post" style="margin:0%; width:50%; float: center;">
+                <input type="text" id="Username" class="fadeIn second" name="uname" placeholder="Username">
+                <input type="text" id="password" class="fadeIn third" name="psw" placeholder="Password">
+                <input type="text" id="password" class="fadeIn third" name="psw2" placeholder="Confirm password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
+
+            <!-- Solicitar Sign-up -->
+            <div id="formFooter">
+                <a class="underlineHover" href="/Seguridad/signup">No estas registrado?</a>
+            </div>
+
+        </div>
+    </div>
+
+    @*<div class="imgcontainer">
+                <img src="https://www.flaticon.com/free-icon/person_2815428" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label class="inline-text" for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <div class="input-container">
+                    <label class="inline-text" for="psw"><b>Password</b></label>
+                    <input class="inline-input-text psw1" type="password" placeholder="Enter Password" name="psw" required>
+                    <label class="inline-text" for="psw2"><b>Confirm password</b></label>
+                    <input class="inline-input-text psw2" type="password" placeholder="Confirm Password" name="psw2" required>
+                </div>
+                <label for="user">Tipo de usuario:</label>
+                <select name="user" id="user">
+                    <option value="1">Dueño de motel</option>
+                    <option value="2">Cliente</option>
+                </select>
+
+                <button type="submit" onclick="login()">Enter</button>
+
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <span class="psw">Ya estas registrado? <a href="/Seguridad/Login/">Inicia secion</a></span>
+            </div>
+        </form>*@
+
+
+    @*Ventana de alerta*@
+    <script>
+        let login = () => {
+
+            var p1 = $('.psw1').val();
+            var p2 = $('.psw2').val();
+
+            if (p1 != p2) {
+
+                alert("Las claves es invalida");
+            }
+
+        }
+    </script>

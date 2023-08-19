@@ -1,0 +1,54 @@
+﻿
+
+
+<style>
+    .Formulario {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        input {
+            width: 50%;
+            height: 17px;
+            margin: 0 auto;
+        }
+
+    .btn{
+        padding: 0.5em 1em;
+        border: none;
+        background: rgb(100, 200, 255);
+        cursor: pointer;
+    }
+</style>
+
+<h2>Registrar</h2>
+
+<form action="/Registrar/RegistrarDatos/" method="post" id=" form_Registro" class="Formulario">
+    <lebel>Nombre del motel</lebel>
+    <input class="form-control" name="nombre_text" id="Nombre.text" type="text" formmethod="post" required />
+    <lebel>Ubicación</lebel>
+    <input class="form-control" name="Ubicacion_text" type="text" formmethod="post" required />
+    <label>Sector</label>
+    <p class="clasificacion" required>
+        <input id="radio1" type="radio" name="idsector" value="1">"Paraiso"
+        <input id="radio2" type="radio" name="idsector" value="2">"Ensache Naco"
+        <input id="radio3" type="radio" name="idsector" value="3">"Ensanche La fe"
+    </p>
+    <lebel>Formas de pago</lebel>
+    <input class="form-check-input" type="checkbox" name="Pago1" value="1">
+    <label class="form-check-label" for="Pago1">
+        Efectivo
+        <br />
+        <input class="form-check-input" type="checkbox" name="Pago2" value="2">
+        <label class="form-check-label" for="Pago2">
+        Tarjeta
+        <br />
+        <input for="form_Registro" type="submit" value="Agregar" class="btn" />
+</form>
+
+

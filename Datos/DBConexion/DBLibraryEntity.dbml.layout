@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.125" name="DBLibraryEntity">
+  <DataContextMoniker Name="/DBLibraryEntityDataContext" />
+  <nestedChildShapes>
+    <classShape Id="776e96df-8d97-4e98-85fc-44c739e41c5f" absoluteBounds="3.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/_HabitacionXMotel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1cd7ea2-a2b3-4f22-b317-cbbaf279a8f0" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9db91747-ffaa-48af-ad38-b3e5b44200ba" absoluteBounds="0.75, 1.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/TipoHabitacion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78aaeb2b-d21c-47f9-a272-1d8d53f2cfe3" absoluteBounds="0.765, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3b4c4e88-86ae-4d1f-8437-8696d197e341" absoluteBounds="0.75, 7, 2, 1.1939925130208318">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/Formas_de_pago" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b85c65a-b99c-4a90-9596-b749af46c9f0" absoluteBounds="0.765, 7.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="61a1d990-8076-45a3-b54a-f55e69403f90" absoluteBounds="6.75, 1, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/Lista_Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e6e295b-711c-43fa-85ff-66a20fd8c7f0" absoluteBounds="6.765, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ef6eb26-6e08-4e70-b9d2-76e8d8fbc194" absoluteBounds="6.75, 4, 2, 1.7708968098958326">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/LogMantenimiento_Tabla" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3e1afaea-4f3b-456b-a422-09d02ee058cd" absoluteBounds="6.765, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4d4c3706-c7e5-4e7a-9f0f-7c4e92aba71a" absoluteBounds="0.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/Motel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="67934406-00d9-499e-a267-7c59fa146986" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c5e26103-95aa-4807-b806-0fde30e860f2" absoluteBounds="3.5, 3.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/Motel_Forma_Pago" />
+      <nestedChildShapes>
+        <elementListCompartment Id="39a4e8c6-a42b-42c7-9845-798dde006801" absoluteBounds="3.515, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed7df5ce-2118-4402-a3df-6e70a6a76e0b" absoluteBounds="3.5, 8.125, 2, 1.7708968098958326">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/Puntuacione" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74aba355-8a87-4bd9-9809-7f5f421f6e09" absoluteBounds="3.515, 8.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6736556-8b42-49ca-9201-fa31e5256d98" absoluteBounds="6.75, 7, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DBLibraryEntityDataContext/Sectore" />
+      <nestedChildShapes>
+        <elementListCompartment Id="792290ee-dfd9-46ce-915a-9039c30fec6b" absoluteBounds="6.765, 7.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.91429768880208); (3.04166666666667 : 1.91429768880208 : JumpStart); (3.20833333333333 : 1.91429768880208 : JumpEnd); (3.5 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLibraryEntityDataContext/TipoHabitacion/TipoHabitacion__HabitacionXMotel" />
+      <nodes>
+        <classShapeMoniker Id="9db91747-ffaa-48af-ad38-b3e5b44200ba" />
+        <classShapeMoniker Id="776e96df-8d97-4e98-85fc-44c739e41c5f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.75); (3.125 : 3.375); (3.125 : 1.30089684440104); (3.5 : 1.30089684440104)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLibraryEntityDataContext/Motel/Motel__HabitacionXMotel" />
+      <nodes>
+        <classShapeMoniker Id="4d4c3706-c7e5-4e7a-9f0f-7c4e92aba71a" />
+        <classShapeMoniker Id="776e96df-8d97-4e98-85fc-44c739e41c5f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.56814697265625); (3.5 : 4.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLibraryEntityDataContext/Motel/Motel_Motel_Forma_Pago" />
+      <nodes>
+        <classShapeMoniker Id="4d4c3706-c7e5-4e7a-9f0f-7c4e92aba71a" />
+        <classShapeMoniker Id="c5e26103-95aa-4807-b806-0fde30e860f2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7); (3.125 : 6.625); (3.125 : 4.94597245898438); (3.5 : 4.94597245898438)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLibraryEntityDataContext/Formas_de_pago/Formas_de_pago_Motel_Forma_Pago" />
+      <nodes>
+        <classShapeMoniker Id="3b4c4e88-86ae-4d1f-8437-8696d197e341" />
+        <classShapeMoniker Id="c5e26103-95aa-4807-b806-0fde30e860f2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.26666486663662); (3.06607443490112 : 5.58273930153774 : JumpStart); (3.18392556509888 : 5.7005904317355 : JumpEnd); (3.3125 : 5.82916486663662); (3.3125 : 9.01044840494792); (3.5 : 9.01044840494792)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBLibraryEntityDataContext/Motel/Motel_Puntuacione" />
+      <nodes>
+        <classShapeMoniker Id="4d4c3706-c7e5-4e7a-9f0f-7c4e92aba71a" />
+        <classShapeMoniker Id="ed7df5ce-2118-4402-a3df-6e70a6a76e0b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
